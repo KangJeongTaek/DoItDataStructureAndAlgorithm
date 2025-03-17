@@ -17,6 +17,7 @@ public class SeqSearch {
         }
     }
 
+    // 실습 3-2
     static int seqSearchWithFor(int[] a, int n, int key){
         for(int i = 0; i < a.length; i++){
             if(a[i] == key) return i;
