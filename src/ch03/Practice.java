@@ -1,5 +1,6 @@
 package ch03;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class Practice {
@@ -61,7 +62,7 @@ public class Practice {
 
     //오른쪽처럼 이진 검색 과정을 자세히 출력하는 프로그램을 작성하시오.
     //각 행의 맨 왼쪽에 현재 선택한 요소의 인덱스를 출력하고, 검색 범위의 첫 요소 위에 <-, 끝 요소 위에 ->,
-    // 현재 선택한 중앙 요소 위에 +를 출력하시오.
+    // 현재 선택한 중앙 요소 위에 +를 출력하시오. Q4
     static void binSearch(int[] a, int key){
         int n  = a.length;
         System.out.print("  |");
@@ -103,6 +104,30 @@ public class Practice {
         }
         System.out.println("값을 찾지 못 했습니다.");
     }
+
+//    우리가 살펴본 이진 검색 알고리즘 프로그램은 검색할 키값과 같은 값을 갖는 요소가 하나 이상일 경우
+//    그 요소 중에서 매 ㄴ앞의 요소를 찾지 못 합니다. 예르 들어 다음 그림의 배열에서 7을 검색하면 중앙에 위치하는 a[5]를
+//    검색합니다. 이를 개선하여 키값 요소가 일치하는 맨 앞의 요소를 팢는 binSearchX메서드를 작성하세요.
+    static int binSearchX(int[] a, int key){
+
+        int idx = -1;
+        int firstIndex = 0;
+        int lastIndex = a.length - 1;
+        while (firstIndex <= lastIndex) {
+            int mid = (firstIndex + lastIndex) / 2;
+            if(a[mid] == key){
+                idx = mid;
+
+                while(idx > 0 && a[idx - 1] == key){
+                    idx--;
+                }
+
+                return idx;
+            }else if(a[mid] > key) lastIndex = mid - 1;
+            else firstIndex = mid + 1;
+        }
+        return idx;
+    }
     public static void main(String[] args) {
 //        int[] a = {6,5,3,2,1,9,8};
 
@@ -117,8 +142,12 @@ public class Practice {
 //
 //        searchIdx(a,n,9,idx);
 
-        int[] a = {1,2,3,5,6,8,9};
-        int key = 4;
-        binSearch(a, key);
+//        int[] a = {1,2,3,5,6,8,9};
+//        int key = 4;
+//        binSearch(a, key);
+
+        int[] a= {1,3,5,7,7,7,7,8,8,9,9};
+        int key = 7;
+        System.out.println(binSearchX(a,key));
     }
 }
