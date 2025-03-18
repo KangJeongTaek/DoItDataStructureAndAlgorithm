@@ -11,7 +11,7 @@ public class PhysExamSearch {
             int height,
             double vision
     ){
-        //키의 오름차순으로 정려라힉 위한 compator
+        //키의 오름차순으로 정렬하기 위한 compator
         private static final Comparator<PhyscData> HEIGHT_ORDER = new HeightOrderComparator();
         private static class HeightOrderComparator implements Comparator<PhyscData> {
 

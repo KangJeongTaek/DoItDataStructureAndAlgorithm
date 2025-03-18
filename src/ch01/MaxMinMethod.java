@@ -28,7 +28,7 @@ public class MaxMinMethod {
     }
 
 //   네 값의 최솟값을 구하는 min4 메서드
-static int min3(int a, int b, int c, int d) {
+    static int min3(int a, int b, int c, int d) {
     int min = a;
 
     if(min > b) min = b;
@@ -36,5 +36,5 @@ static int min3(int a, int b, int c, int d) {
     if(min > d) min = d;
 
     return min;
-}
+    }
 }
