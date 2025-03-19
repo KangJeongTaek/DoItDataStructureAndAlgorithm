@@ -13,7 +13,7 @@ public class EuclidGCD {
         return gcd(gcd(x,y),z);
     }
 
-    // 배명ㄹ a의 모든 요소의 최대 공약수를 구하는 메서드
+    // 배열 a의 모든 요소의 최대 공약수를 구하는 메서드
     static int gcd3(int[] a){
         if(a.length >= 1){
             int result = a[0];
