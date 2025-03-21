@@ -3,9 +3,9 @@ package ch08;
 import java.util.Comparator;
 import java.util.Scanner;
 
-public class LinkedListTester {
+public class ArrayLinkedListTester {
     static Scanner sc = new Scanner(System.in);
-    
+
     static class Data{
         static final int NO = 1; // 번호 입력받기
         static final int NAME = 2; // 이름 입력기
@@ -99,18 +99,18 @@ public class LinkedListTester {
         Data ptr; // 검색용 데이터 참조
         Data temp = new Data(); // 입력용 데이터
 
-        LinkedList<Data> list = new LinkedList<Data>(); // 리스트 생성
+        ArrayLinkedList<Data> list = new ArrayLinkedList<Data>(100); // 리스트 생성
 
         do{
             switch(menu = SelectMenu()){
                 case ADD_FIRST:
                     data =new Data();
-                    data.scanData("머리에 삽입",Data.NO | Data.NAME);
+                    data.scanData("머리에 삽입", Data.NO | Data.NAME);
                     list.addFirst(data);
                     break;
                 case ADD_LAST:
                     data =new Data();
-                    data.scanData("꼬리에 삽입",Data.NO | Data.NAME);
+                    data.scanData("꼬리에 삽입", Data.NO | Data.NAME);
                     list.addLast(data);
                     break;
                 case RMV_FIRST:
@@ -123,16 +123,16 @@ public class LinkedListTester {
                     list.removeCurrentNode();
                     break;
                 case SEARCH_NO:
-                    temp.scanData("검색",Data.NO);
-                    ptr = list.search(temp,Data.NO_ORDER);
+                    temp.scanData("검색", Data.NO);
+                    ptr = list.search(temp, Data.NO_ORDER);
                     if(ptr == null){
                         System.out.println("그 번호의 데이터가 없습니다.");
                     }else
                         System.out.println("검색 성공 : " + ptr);
                     break;
                 case SEARCH_NAME:
-                    temp.scanData("검색",Data.NAME);
-                    ptr = list.search(temp,Data.NAME_ORDER);
+                    temp.scanData("검색", Data.NAME);
+                    ptr = list.search(temp, Data.NAME_ORDER);
                     if(ptr == null){
                         System.out.println("그 이름의 데이터가 없습니다.");
                     }else

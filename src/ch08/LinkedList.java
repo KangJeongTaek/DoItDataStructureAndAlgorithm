@@ -1,7 +1,5 @@
 package ch08;
 
-import jdk.swing.interop.SwingInterOpUtils;
-
 import java.util.Comparator;
 
 public class LinkedList<E> {
@@ -14,7 +12,7 @@ public class LinkedList<E> {
         head = crnt= null;
     }
 
-    public E serach(E obj, Comparator<? super E> cmp){
+    public E search(E obj, Comparator<? super E> cmp){
         Node<E> ptr = head; // 현재 스킨 중인 노드
         while (ptr != null){
             if(cmp.compare(obj,ptr.data) == 0){
